@@ -5,6 +5,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import utils.Intercept;
+import utils.JsonPrettifier;
 
 import static utils.Intercept.sendHttpRequest;
 
@@ -21,7 +22,7 @@ public class Amelco3HoursEventsTest {
         Driver.click(AmelcoHomePage.eventSearchTab);
         Driver.click(AmelcoHomePage.hoursCheckbox);
         String response = sendHttpRequest("GET", Intercept.interceptAndPrintResponseBody(AmelcoHomePage.searchButton));
-        System.out.println("Response: " + response);
+        System.out.println(JsonPrettifier.prettifyJson(response));
     }
 
     @AfterTest
