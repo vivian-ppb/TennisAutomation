@@ -1,0 +1,103 @@
+package utils;
+
+import com.tennis.Driver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.devtools.v126.network.Network;
+import org.openqa.selenium.devtools.v126.network.model.Request;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
+
+import static com.tennis.Driver.devTools;
+
+
+public class Intercept {
+
+    /**
+     * Intercepts the url of
+     *
+     * @param locator
+     */
+    public static String interceptAndPrintResponseBody(By locator) {
+        AtomicReference<String> url = new AtomicReference<>("");
+        devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
+        devTools.addListener(Network.requestWillBeSent(), request -> {
+            Request req = request.getRequest();
+            url.set(req.getUrl());
+
+        });
+        Driver.click(locator);
+        Sleeper.sleep(5000);
+        return url.get();
+    }
+
+    /**
+     * Sends an HTTP request using the given parameters
+     *
+     * @param requestMethod: GET/POST/PUT/DELETE
+     * @param endpointUrl:   The request endpoint
+     * @return Returns the response as a string
+     */
+    //TODO: If required, a parameter for the request body will be added
+    public static String sendHttpRequest(String requestMethod, String endpointUrl) {
+        HttpURLConnection connection = null;
+        BufferedReader reader = null;
+        StringBuilder response = new StringBuilder();
+
+        try {
+            // Create URL object
+            URL url = new URL(endpointUrl);
+
+            // Open connection
+            connection = (HttpURLConnection) url.openConnection();
+
+            // Set request method
+            connection.setRequestMethod(requestMethod.toUpperCase());
+
+            // If the request method is POST, PUT, PATCH, we need to enable input and output streams
+            if ("POST".equalsIgnoreCase(requestMethod) || "PUT".equalsIgnoreCase(requestMethod) || "PATCH".equalsIgnoreCase(requestMethod)) {
+                connection.setDoOutput(true);
+
+                // Example of sending data in the request body
+                String jsonInputString = "{\"name\": \"test\"}";
+                try (OutputStream os = connection.getOutputStream()) {
+                    byte[] input = jsonInputString.getBytes("utf-8");
+                    os.write(input, 0, input.length);
+                }
+            }
+
+            // Get the response code
+            int responseCode = connection.getResponseCode();
+            System.out.println("Response Code: " + responseCode);
+
+            // Create a reader to read the response
+            reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                response.append(line);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Error: " + e.getMessage();
+        } finally {
+            // Close the connections
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                connection.disconnect();
+            }
+        }
+
+        return response.toString();
+    }
+}
