@@ -10,6 +10,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -19,11 +21,11 @@ import static com.tennis.Driver.devTools;
 public class Intercept {
 
     /**
-     * Intercepts the url of
+     * Intercepts the url of a request
      *
      * @param locator
      */
-    public static String interceptAndPrintResponseBody(By locator) {
+    public static String interceptRequestUrl(By locator) {
         AtomicReference<String> url = new AtomicReference<>("");
         devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
         devTools.addListener(Network.requestWillBeSent(), request -> {
@@ -73,7 +75,6 @@ public class Intercept {
 
             // Get the response code
             int responseCode = connection.getResponseCode();
-            System.out.println("Response Code: " + responseCode);
 
             // Create a reader to read the response
             reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -99,5 +100,69 @@ public class Intercept {
         }
 
         return response.toString();
+    }
+
+    public static List<String> sendHttpRequest(String requestMethod, List<String> endpointUrls) {
+        List<String> responses = new ArrayList<>();
+
+        for (String endpointUrl : endpointUrls) {
+            HttpURLConnection connection = null;
+            BufferedReader reader = null;
+            StringBuilder response = new StringBuilder();
+
+            try {
+                // Create URL object
+                URL url = new URL(endpointUrl);
+
+                // Open connection
+                connection = (HttpURLConnection) url.openConnection();
+
+                // Set request method
+                connection.setRequestMethod(requestMethod.toUpperCase());
+
+                // If the request method is POST, PUT, PATCH, we need to enable input and output streams
+                if ("POST".equalsIgnoreCase(requestMethod) || "PUT".equalsIgnoreCase(requestMethod) || "PATCH".equalsIgnoreCase(requestMethod)) {
+                    connection.setDoOutput(true);
+
+                    // Example of sending data in the request body
+                    String jsonInputString = "{\"name\": \"test\"}";
+                    try (OutputStream os = connection.getOutputStream()) {
+                        byte[] input = jsonInputString.getBytes("utf-8");
+                        os.write(input, 0, input.length);
+                    }
+                }
+
+                // Get the response code
+                int responseCode = connection.getResponseCode();
+                System.out.println("Response Code: " + responseCode);
+
+                // Create a reader to read the response
+                reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    response.append(line);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                responses.add("Error: " + e.getMessage());
+                continue;
+            } finally {
+                // Close the connections
+                if (reader != null) {
+                    try {
+                        reader.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (connection != null) {
+                    connection.disconnect();
+                }
+            }
+
+            responses.add(response.toString());
+        }
+
+        return responses;
     }
 }

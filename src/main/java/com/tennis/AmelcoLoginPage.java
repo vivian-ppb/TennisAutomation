@@ -11,8 +11,8 @@ public class AmelcoLoginPage {
 
     public static void amelcoLogin() {
         Driver.getDriver().get(PropertiesReader.getProperty("environment.properties", "amelcoUrl"));
-        Driver.typeText(AmelcoLoginPage.amelcoUsername, PropertiesReader.getProperty("environment.properties", "username"));
-        Driver.typeText(AmelcoLoginPage.amelcoPassword, PropertiesReader.getProperty("environment.properties", "password"));
-        Driver.click(AmelcoLoginPage.amelcoLoginButton);
+        Driver.typeText(amelcoUsername, PropertiesReader.getProperty("environment.properties", "username"));
+        Driver.typeText(amelcoPassword, PropertiesReader.getProperty("environment.properties", "password"));
+        Driver.click(amelcoLoginButton);
     }
 }
