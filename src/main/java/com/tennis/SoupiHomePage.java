@@ -22,7 +22,7 @@ public class SoupiHomePage {
 
     public static String competitionName() {
         String fullContent = Driver.getText(upiResult);
-        String cn = Extractor.extractKey(fullContent, "competitionName").toString().replace("[", "").replace("]", "").replace(" ,", "").replace(", ", "").trim();
+        String cn = Extractor.extractKey(fullContent, "competitionName").toString().replace("[", "").replace("]", "").replace(" , ", "").trim();
         if (fullContent.contains(resultError)) {
             Driver.getDriver().navigate().refresh();
         }

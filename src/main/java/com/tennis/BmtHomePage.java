@@ -38,16 +38,15 @@ public class BmtHomePage {
                         dif = " |Qualifiers|";
                     }
                     By unmappedCompetition = By.xpath(unmappedCompetitionContainer + "//*[text()='" + text + "']");
-                    if (Driver.isElementPresent(unmappedCompetition)) {
-                        Driver.clickIfDisplayed(unmappedCompetition);
-                        Driver.typeText(searchBox, itfKofu + dif);
-                        Driver.clickIfDisplayed(By.xpath(rampResultContainer + "//*[text()='" + itfKofu + dif + "']"));
-                        Driver.click(mapButton);
-                        Driver.click(confirmButton);
-                        Driver.fluentWaitForElement(confirmationToast);
-                        Driver.click(amelco);
-                        Driver.click(tennis);
-                    }
+
+                    Driver.clickNoSuchStale(unmappedCompetition, amelco, tennis);
+                    Driver.typeText(searchBox, itfKofu + dif);
+                    Driver.clickIfDisplayed(By.xpath(rampResultContainer + "//*[text()='" + itfKofu + dif + "']"));
+                    Driver.click(mapButton);
+                    Driver.click(confirmButton);
+                    Driver.fluentWaitForElement(confirmationToast);
+                    Driver.click(amelco);
+                    Driver.click(tennis);
                 }
             } catch (Exception e) {
                 System.out.println("An error occurred while clicking elements containing text: " + text + " " + e.getMessage());

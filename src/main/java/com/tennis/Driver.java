@@ -66,6 +66,40 @@ public class Driver {
     }
 
     /**
+     * Clicks on an element while refreshing and retrying 3 times if NoSuchElementException or StaleElementReferenceException are thrown
+     * @param locator the element to click
+     * @param locatorA optional locator A to re-click after refresh
+     * @param locatorB optional locator B to re-click after refresh and locator A
+     */
+    public static void clickNoSuchStale(By locator, By locatorA, By locatorB) {
+        int attempts = 0;
+        while (attempts < 3) {
+            try {
+                // Perform desired interaction with the element, e.g., click
+                fluentWaitForElement(locator);
+                clickIfDisplayed(locator);
+
+                // Break the loop if the interaction is successful
+                break;
+            } catch (NoSuchElementException | StaleElementReferenceException e) {
+                // Increment the attempts counter
+                attempts++;
+
+                // Refresh the page & click optional locators
+                driver.navigate().refresh();
+                if(locatorA!=null){
+                    clickIfDisplayed(locatorA);
+                }if (locatorB!=null) {
+                    clickIfDisplayed(locatorB);
+                }
+
+                // Log the exception and retry
+                System.out.println(e + "caught. Attempt #" + attempts);
+            }
+        }
+    }
+
+    /**
      * Types a string to a given element locator
      *
      * @param element

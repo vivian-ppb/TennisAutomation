@@ -35,10 +35,10 @@ public class Amelco3HoursEventsMapper {
         }
         Set<String> set = new HashSet<>(competitionNames);
         List<String> uniqueCompetitionNames = new ArrayList<>(set);
+        System.out.println("Competition Names: " +uniqueCompetitionNames);
         BmtLoginPage.bmtLogin();
         Driver.click(BmtHomePage.amelco);
         Driver.click(BmtHomePage.tennis);
-        System.out.println("Competition Names : "+uniqueCompetitionNames);
         BmtHomePage.mapMatches(uniqueCompetitionNames);
     }
 

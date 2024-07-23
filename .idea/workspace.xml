@@ -4,28 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c391ea8c-fee1-414a-b984-bc1dd3f958f3" name="Changes" comment="Created new JsonPrettifier class;&#10;Updated Amelco3HoursEventsTest to use new JsonPrettifier.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tennis/BmtHomePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tennis/BmtLoginPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tennis/NatsHomePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tennis/NatsLoginPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tennis/SoupiHomePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/Extractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/SoupiUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/XmlPrettifier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/windriver/chromedriver.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Amelco3HoursEventsMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/BmtEventsMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/BmtLoginTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/NatsEventsTest.java" afterDir="false" />
+    <list default="true" id="c391ea8c-fee1-414a-b984-bc1dd3f958f3" name="Changes" comment="Various updates for OS switch and events mapping.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tennis/AmelcoLoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tennis/AmelcoLoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tennis/BmtHomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tennis/BmtHomePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tennis/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tennis/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Intercept.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Intercept.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/JsonPrettifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/JsonPrettifier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/environment.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/environment.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Amelco3HoursEventsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Amelco3HoursEventsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tennis/SoupiHomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tennis/SoupiHomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Amelco3HoursEventsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Amelco3HoursEventsMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +176,7 @@
       <workItem from="1721323356970" duration="3564000" />
       <workItem from="1721371057557" duration="2099000" />
       <workItem from="1721376815219" duration="106000" />
-      <workItem from="1721376926989" duration="612000" />
+      <workItem from="1721376926989" duration="15427000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -210,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720710375127</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Various updates for OS switch and events mapping.">
+      <option name="closed" value="true" />
+      <created>1721386514709</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1721386514709</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,7 +211,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Created new JsonPrettifier class;&#10;Updated Amelco3HoursEventsTest to use new JsonPrettifier." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created new JsonPrettifier class;&#10;Updated Amelco3HoursEventsTest to use new JsonPrettifier." />
+    <MESSAGE value="Various updates for OS switch and events mapping." />
+    <option name="LAST_COMMIT_MESSAGE" value="Various updates for OS switch and events mapping." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
