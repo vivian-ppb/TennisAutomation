@@ -4,12 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c391ea8c-fee1-414a-b984-bc1dd3f958f3" name="Changes" comment="Various updates for OS switch and events mapping.">
+    <list default="true" id="c391ea8c-fee1-414a-b984-bc1dd3f958f3" name="Changes" comment="Fixes for skipping matches containing commas and enhanced stale element exception handling.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/Extract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/GameScore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/Markets.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/PlayerOrDraw.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/PlayerOrNone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/SetScore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/TennisMatch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/TrueFalseNA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/soupi/SoupiMarketState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/soupi/SoupiSelectionState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/MarketResultTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tennis/BmtHomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tennis/BmtHomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tennis/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tennis/Driver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tennis/SoupiHomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tennis/SoupiHomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Extractor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Intercept.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Intercept.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/JsonPrettifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/JsonPrettifier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/SoupiUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/soupi/SoupiUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/chromedriver" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/chromedriver" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/windriver/chromedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/windriver/chromedriver.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Amelco3HoursEventsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Amelco3HoursEventsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Amelco3HoursEventsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Amelco3HoursEventsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BmtEventsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BmtEventsMapperTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +79,7 @@
     &quot;TestNG.BmtEventsMapper.executor&quot;: &quot;Run&quot;,
     &quot;TestNG.BmtEventsMapper.test.executor&quot;: &quot;Run&quot;,
     &quot;TestNG.BmtLoginTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.MarketResultTest.executor&quot;: &quot;Run&quot;,
     &quot;TestNG.NatsEventsTest.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
@@ -77,16 +97,23 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="utils" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/windriver" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="utils.soupi" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.tennis" />
+      <recent name="utils" />
       <recent name="" />
+      <recent name="com.tennis" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.Amelco3HoursEventsMapper">
+  <component name="RunManager" selected="TestNG.MarketResultTest">
     <configuration name="Amelco3HoursEventsMapper" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TennisAutomation" />
       <option name="PACKAGE_NAME" value="" />
@@ -121,17 +148,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BmtEventsMapper" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="TennisAutomation" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BmtEventsMapper" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="BmtLoginTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TennisAutomation" />
       <option name="PACKAGE_NAME" value="" />
@@ -143,13 +159,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MarketResultTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TennisAutomation" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MarketResultTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.MarketResultTest" />
         <item itemvalue="TestNG.Amelco3HoursEventsMapper" />
         <item itemvalue="TestNG.Amelco3HoursEventsMapper.testAmelco3HoursEventsMapper" />
         <item itemvalue="TestNG.BmtLoginTest" />
         <item itemvalue="TestNG.Amelco3HoursEventsTest" />
-        <item itemvalue="TestNG.BmtEventsMapper" />
       </list>
     </recent_temporary>
   </component>
@@ -176,7 +203,8 @@
       <workItem from="1721323356970" duration="3564000" />
       <workItem from="1721371057557" duration="2099000" />
       <workItem from="1721376815219" duration="106000" />
-      <workItem from="1721376926989" duration="15427000" />
+      <workItem from="1721376926989" duration="94426000" />
+      <workItem from="1722586016935" duration="3765000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -202,7 +230,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721386514709</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fixes for skipping matches containing commas and enhanced stale element exception handling.">
+      <option name="closed" value="true" />
+      <created>1721738315907</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1721738315907</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,7 +248,8 @@
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Created new JsonPrettifier class;&#10;Updated Amelco3HoursEventsTest to use new JsonPrettifier." />
     <MESSAGE value="Various updates for OS switch and events mapping." />
-    <option name="LAST_COMMIT_MESSAGE" value="Various updates for OS switch and events mapping." />
+    <MESSAGE value="Fixes for skipping matches containing commas and enhanced stale element exception handling." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes for skipping matches containing commas and enhanced stale element exception handling." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

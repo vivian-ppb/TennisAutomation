@@ -16,7 +16,6 @@ public class JsonPrettifier {
             prettyJsonString = objectWriter.writeValueAsString(json);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
-            // You can also throw an exception or handle it based on your use case
         }
 
         return prettyJsonString;

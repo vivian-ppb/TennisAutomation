@@ -2,7 +2,7 @@ import com.tennis.*;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import utils.Extractor;
+import utils.Extract;
 import utils.Intercept;
 
 import java.util.ArrayList;
@@ -24,11 +24,11 @@ public class Amelco3HoursEventsMapper {
         Driver.click(AmelcoHomePage.eventSearchTab);
         Driver.click(AmelcoHomePage.hoursCheckbox);
         String amelcoEvents = sendHttpRequest("GET", Intercept.interceptRequestUrl(AmelcoHomePage.searchButton));
-        List<String> amelcoIds = Extractor.extractKey(amelcoEvents, "id");
+        List<String> amelcoIds = Extract.extractKey(amelcoEvents, "id");
         List<String> competitionNames = new ArrayList<>();
         for (String amelcoId : amelcoIds) {
             SoupiHomePage.upiSearch(amelcoId);
-            String cn = SoupiHomePage.competitionName();
+            String cn = SoupiHomePage.getSoupiValue("competitionName");
             if (!cn.isEmpty() || !cn.isBlank()) {
                 competitionNames.add(cn);
             }

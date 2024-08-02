@@ -1,7 +1,7 @@
 package com.tennis;
 
 import org.openqa.selenium.By;
-import utils.Extractor;
+import utils.Extract;
 import utils.PropertiesReader;
 
 public class SoupiHomePage {
@@ -20,9 +20,9 @@ public class SoupiHomePage {
         Driver.fluentWaitForElement(upiSearchBox);
     }
 
-    public static String competitionName() {
+    public static String getSoupiValue(String key) {
         String fullContent = Driver.getText(upiResult);
-        String cn = Extractor.extractKey(fullContent, "competitionName").toString().replace("[", "").replace("]", "").replace(" , ", "").trim();
+        String cn = Extract.extractKey(fullContent, key).toString().replace("[", "").replace("]", "").replace(" , ", "").trim();
         if (fullContent.contains(resultError)) {
             Driver.getDriver().navigate().refresh();
         }

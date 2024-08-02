@@ -4,7 +4,7 @@ import com.tennis.Driver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import utils.Extractor;
+import utils.Extract;
 import utils.Intercept;
 
 import static utils.Intercept.sendHttpRequest;
@@ -22,7 +22,7 @@ public class Amelco3HoursEventsTest {
         Driver.click(AmelcoHomePage.eventSearchTab);
         Driver.click(AmelcoHomePage.hoursCheckbox);
         String response = sendHttpRequest("GET", Intercept.interceptRequestUrl(AmelcoHomePage.searchButton));
-        Extractor.extractKey(response, "id");
+        Extract.extractKey(response, "id");
     }
 
     @AfterTest

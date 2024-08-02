@@ -52,31 +52,18 @@ public class Intercept {
         StringBuilder response = new StringBuilder();
 
         try {
-            // Create URL object
             URL url = new URL(endpointUrl);
-
-            // Open connection
             connection = (HttpURLConnection) url.openConnection();
-
-            // Set request method
             connection.setRequestMethod(requestMethod.toUpperCase());
-
-            // If the request method is POST, PUT, PATCH, we need to enable input and output streams
             if ("POST".equalsIgnoreCase(requestMethod) || "PUT".equalsIgnoreCase(requestMethod) || "PATCH".equalsIgnoreCase(requestMethod)) {
                 connection.setDoOutput(true);
-
-                // Example of sending data in the request body
                 String jsonInputString = "{\"name\": \"test\"}";
                 try (OutputStream os = connection.getOutputStream()) {
                     byte[] input = jsonInputString.getBytes("utf-8");
                     os.write(input, 0, input.length);
                 }
             }
-
-            // Get the response code
             int responseCode = connection.getResponseCode();
-
-            // Create a reader to read the response
             reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String line;
             while ((line = reader.readLine()) != null) {
@@ -86,7 +73,6 @@ public class Intercept {
             e.printStackTrace();
             return "Error: " + e.getMessage();
         } finally {
-            // Close the connections
             if (reader != null) {
                 try {
                     reader.close();
@@ -111,32 +97,18 @@ public class Intercept {
             StringBuilder response = new StringBuilder();
 
             try {
-                // Create URL object
                 URL url = new URL(endpointUrl);
-
-                // Open connection
                 connection = (HttpURLConnection) url.openConnection();
-
-                // Set request method
                 connection.setRequestMethod(requestMethod.toUpperCase());
-
-                // If the request method is POST, PUT, PATCH, we need to enable input and output streams
                 if ("POST".equalsIgnoreCase(requestMethod) || "PUT".equalsIgnoreCase(requestMethod) || "PATCH".equalsIgnoreCase(requestMethod)) {
                     connection.setDoOutput(true);
-
-                    // Example of sending data in the request body
                     String jsonInputString = "{\"name\": \"test\"}";
                     try (OutputStream os = connection.getOutputStream()) {
                         byte[] input = jsonInputString.getBytes("utf-8");
                         os.write(input, 0, input.length);
                     }
                 }
-
-                // Get the response code
                 int responseCode = connection.getResponseCode();
-                System.out.println("Response Code: " + responseCode);
-
-                // Create a reader to read the response
                 reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 String line;
                 while ((line = reader.readLine()) != null) {
@@ -147,7 +119,6 @@ public class Intercept {
                 responses.add("Error: " + e.getMessage());
                 continue;
             } finally {
-                // Close the connections
                 if (reader != null) {
                     try {
                         reader.close();

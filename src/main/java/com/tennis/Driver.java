@@ -27,7 +27,7 @@ public class Driver {
                 System.setProperty("webdriver.chrome.driver", "src/main/resources/windriver/chromedriver.exe");
             } else
                 System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
-            ChromeOptions chromeOptions = new ChromeOptions().addArguments("ignore-certificate-errors");
+            ChromeOptions chromeOptions = new ChromeOptions().addArguments("--disable-search-engine-choice-screen");
             driver = new ChromeDriver(chromeOptions);
             driver.manage().window().maximize();
             devTools = ((ChromeDriver) driver).getDevTools();
@@ -58,7 +58,6 @@ public class Driver {
             if (webElement.isDisplayed()) {
                 webElement.click();
             }
-            // Ignoring the exceptions
         } catch (NoSuchElementException | StaleElementReferenceException e) {
             System.out.println("Element not found or not in DOM: " + e.getMessage());
             e.printStackTrace();
@@ -75,25 +74,17 @@ public class Driver {
         int attempts = 0;
         while (attempts < 3) {
             try {
-                // Perform desired interaction with the element, e.g., click
                 fluentWaitForElement(locator);
                 clickIfDisplayed(locator);
-
-                // Break the loop if the interaction is successful
                 break;
             } catch (NoSuchElementException | StaleElementReferenceException e) {
-                // Increment the attempts counter
                 attempts++;
-
-                // Refresh the page & click optional locators
                 driver.navigate().refresh();
                 if(locatorA!=null){
                     clickIfDisplayed(locatorA);
                 }if (locatorB!=null) {
                     clickIfDisplayed(locatorB);
                 }
-
-                // Log the exception and retry
                 System.out.println(e + "caught. Attempt #" + attempts);
             }
         }
