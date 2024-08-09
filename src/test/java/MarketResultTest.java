@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import utils.Extract;
 import utils.Intercept;
+import utils.TennisMatchObject;
 import utils.soupi.SoupiMarketState;
 
 import java.util.*;
@@ -23,35 +24,45 @@ public class MarketResultTest {
     }
 
     @Test
-    public void marketResultTest(){
+    public void marketResultTest() {
         Driver.fluentWaitForElement(AmelcoHomePage.eventSearchTab);
         Driver.click(AmelcoHomePage.eventSearchTab);
         Driver.click(AmelcoHomePage.hoursCheckbox);
         String response = sendHttpRequest("GET", Intercept.interceptRequestUrl(AmelcoHomePage.searchButton));
-        List<String> amelcoIds = Extract.extractKey(response, "id");
+        List<String> amelcoIds = Extract.getSoupiKey(response, "id");
         List<String> names = new ArrayList<>();
         List<Integer> setScore = new ArrayList<>();
         for (String amelcoId : amelcoIds) {
             SoupiHomePage.upiSearch(amelcoId);
-            String competitors = Extract.getEventName();
-            int maxSets = Extract.getHighestSetNumber();
-            System.out.println("highest set =  " + maxSets);
-            if (!competitors.isEmpty() || !competitors.isBlank() || !competitors.equals(SoupiHomePage.resultError) && maxSets >=1) {
-                names = Extract.extractPlayerNames(competitors);
+            String competitors = Extract.getSoupiEventName();
+            int maxSets = Extract.getSoupiHighestSetNumber();
+            if (!competitors.isEmpty() || !competitors.isBlank() || !competitors.equals(SoupiHomePage.resultError) && maxSets >= 1) {
+                names = Extract.getSoupiPlayerNames(competitors);
                 soupiMarketState = new SoupiMarketState();
                 soupiMarketState.setAmelcoEventId(amelcoId);
-                setScore = Extract.getSetScore(1);
-/*                for (int i = 0; i < maxSets; i++) {
-                    setScore = Extract.getSetScore(i);
-
-                }*/
-                String somescore = setScore.toString();
-                System.out.println("setScoreList: " + setScore);
+                Extract.getAllSetScoresFormatted(Extract.getSoupiSetScore(maxSets), maxSets);
+                Set<String> set = new HashSet<>(names);
+                List<String> uniqueCompetitionNames = new ArrayList<>(set);
+                TennisMatchObject tennisMatch = new TennisMatchObject.Builder()
+                        .amelcoEventId(amelcoId)
+                        .offeredInRunning(Extract.getSoupiOfferedInRunning())
+                        .booked(Extract.getSoupiBookingStatus())
+                        .bettingStatus(Extract.getSoupiBettingStatus())
+                        .resulted(Extract.getSoupiResulted())
+                        .display(Extract.getSoupiDisplay())
+                        .score(Extract.getAllSetScoresFormatted(Extract.getSoupiSetScore(maxSets), maxSets))
+                        .build();
+                System.out.println("amelcoID = " + tennisMatch.getAmelcoEventId());
+                System.out.println("offeredInRunning = " + tennisMatch.getOfferedInRunning());
+                System.out.println("booked = " + tennisMatch.getBooked());
+                System.out.println("bettingStatus = " + tennisMatch.getBettingStatus());
+                System.out.println("resulted = " + tennisMatch.getResulted());
+                System.out.println("display = " + tennisMatch.getDisplay());
+                System.out.println("score = " + tennisMatch.getScore());
             }
         }
-        Set<String> set = new HashSet<>(names);
-        List<String> uniqueCompetitionNames = new ArrayList<>(set);
-        System.out.println("names: " +uniqueCompetitionNames);    }
+
+    }
 
     @AfterTest
     public static void tearDown() {

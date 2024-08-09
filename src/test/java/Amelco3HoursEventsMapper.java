@@ -24,7 +24,7 @@ public class Amelco3HoursEventsMapper {
         Driver.click(AmelcoHomePage.eventSearchTab);
         Driver.click(AmelcoHomePage.hoursCheckbox);
         String amelcoEvents = sendHttpRequest("GET", Intercept.interceptRequestUrl(AmelcoHomePage.searchButton));
-        List<String> amelcoIds = Extract.extractKey(amelcoEvents, "id");
+        List<String> amelcoIds = Extract.getSoupiKey(amelcoEvents, "id");
         List<String> competitionNames = new ArrayList<>();
         for (String amelcoId : amelcoIds) {
             SoupiHomePage.upiSearch(amelcoId);

@@ -22,7 +22,7 @@ public class Amelco3HoursEventsTest {
         Driver.click(AmelcoHomePage.eventSearchTab);
         Driver.click(AmelcoHomePage.hoursCheckbox);
         String response = sendHttpRequest("GET", Intercept.interceptRequestUrl(AmelcoHomePage.searchButton));
-        Extract.extractKey(response, "id");
+        Extract.getSoupiKey(response, "id");
     }
 
     @AfterTest

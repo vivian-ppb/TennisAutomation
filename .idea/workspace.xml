@@ -4,31 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c391ea8c-fee1-414a-b984-bc1dd3f958f3" name="Changes" comment="Fixes for skipping matches containing commas and enhanced stale element exception handling.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/Extract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/GameScore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/Markets.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/PlayerOrDraw.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/PlayerOrNone.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/SetScore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/TennisMatch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/TrueFalseNA.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/soupi/SoupiMarketState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/soupi/SoupiSelectionState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/MarketResultTest.java" afterDir="false" />
+    <list default="true" id="c391ea8c-fee1-414a-b984-bc1dd3f958f3" name="Changes" comment="Updated gitignore">
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/MarketObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/MatchValidations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/SelectionObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/TennisMatchObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/MarketResultHCTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tennis/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tennis/Driver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tennis/SoupiHomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tennis/SoupiHomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Extractor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Intercept.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Intercept.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/JsonPrettifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/JsonPrettifier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/SoupiUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/soupi/SoupiUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/chromedriver" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/chromedriver" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/windriver/chromedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/windriver/chromedriver.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Extract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Extract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/TennisMatch.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Amelco3HoursEventsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Amelco3HoursEventsMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Amelco3HoursEventsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Amelco3HoursEventsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BmtEventsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BmtEventsMapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MarketResultTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MarketResultTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,36 +54,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.AmelcoLoginTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Test.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;TestNG.ATSEventsTest.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.Amelco3HoursEventsMapper.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.Amelco3HoursEventsMapper.testAmelco3HoursEventsMapper.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.Amelco3HoursEventsTest.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.BmtEventsMapper.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.BmtEventsMapper.test.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.BmtLoginTest.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.MarketResultTest.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.NatsEventsTest.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/vivian.nastasa/IdeaProjects/TennisAutomation/src/main/java/org/example/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.runner&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.AmelcoLoginTest.executor": "Run",
+    "JUnit.Test.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "TestNG.ATSEventsTest.executor": "Run",
+    "TestNG.Amelco3HoursEventsMapper.executor": "Run",
+    "TestNG.Amelco3HoursEventsMapper.testAmelco3HoursEventsMapper.executor": "Run",
+    "TestNG.Amelco3HoursEventsTest.executor": "Run",
+    "TestNG.BmtEventsMapper.executor": "Run",
+    "TestNG.BmtEventsMapper.test.executor": "Run",
+    "TestNG.BmtLoginTest.executor": "Run",
+    "TestNG.MarketResultHCTest.marketResultHCTest.executor": "Run",
+    "TestNG.MarketResultTest.executor": "Run",
+    "TestNG.NatsEventsTest.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/vivian.nastasa/IdeaProjects/TennisAutomation/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.runner",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="utils" />
@@ -108,12 +97,12 @@
       <recent name="utils.soupi" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="utils" />
       <recent name="" />
+      <recent name="utils" />
       <recent name="com.tennis" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.MarketResultTest">
+  <component name="RunManager" selected="TestNG.MarketResultHCTest.marketResultHCTest">
     <configuration name="Amelco3HoursEventsMapper" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TennisAutomation" />
       <option name="PACKAGE_NAME" value="" />
@@ -137,10 +126,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Amelco3HoursEventsTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="BmtLoginTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TennisAutomation" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Amelco3HoursEventsTest" />
+      <option name="MAIN_CLASS_NAME" value="BmtLoginTest" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -148,11 +137,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BmtLoginTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="MarketResultHCTest.marketResultHCTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TennisAutomation" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BmtLoginTest" />
-      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="MAIN_CLASS_NAME" value="MarketResultHCTest" />
+      <option name="METHOD_NAME" value="marketResultHCTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -172,11 +162,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.MarketResultHCTest.marketResultHCTest" />
         <item itemvalue="TestNG.MarketResultTest" />
         <item itemvalue="TestNG.Amelco3HoursEventsMapper" />
         <item itemvalue="TestNG.Amelco3HoursEventsMapper.testAmelco3HoursEventsMapper" />
         <item itemvalue="TestNG.BmtLoginTest" />
-        <item itemvalue="TestNG.Amelco3HoursEventsTest" />
       </list>
     </recent_temporary>
   </component>
@@ -204,7 +194,11 @@
       <workItem from="1721371057557" duration="2099000" />
       <workItem from="1721376815219" duration="106000" />
       <workItem from="1721376926989" duration="94426000" />
-      <workItem from="1722586016935" duration="3765000" />
+      <workItem from="1722586016935" duration="18565000" />
+      <workItem from="1722843830035" duration="16094000" />
+      <workItem from="1723029254582" duration="34557000" />
+      <workItem from="1723190715935" duration="146000" />
+      <workItem from="1723190869564" duration="11331000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -238,7 +232,23 @@
       <option name="project" value="LOCAL" />
       <updated>1721738315907</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Update to chromedriver v127, object builder additions and score getting functionality.">
+      <option name="closed" value="true" />
+      <created>1722590644536</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1722590644536</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Updated gitignore">
+      <option name="closed" value="true" />
+      <created>1722590683793</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1722590683793</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,7 +259,9 @@
     <MESSAGE value="Created new JsonPrettifier class;&#10;Updated Amelco3HoursEventsTest to use new JsonPrettifier." />
     <MESSAGE value="Various updates for OS switch and events mapping." />
     <MESSAGE value="Fixes for skipping matches containing commas and enhanced stale element exception handling." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes for skipping matches containing commas and enhanced stale element exception handling." />
+    <MESSAGE value="Update to chromedriver v127, object builder additions and score getting functionality." />
+    <MESSAGE value="Updated gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated gitignore" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

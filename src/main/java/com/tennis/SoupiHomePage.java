@@ -22,7 +22,7 @@ public class SoupiHomePage {
 
     public static String getSoupiValue(String key) {
         String fullContent = Driver.getText(upiResult);
-        String cn = Extract.extractKey(fullContent, key).toString().replace("[", "").replace("]", "").replace(" , ", "").trim();
+        String cn = Extract.getSoupiKey(fullContent, key).toString().replace("[", "").replace("]", "").replace(" , ", "").trim();
         if (fullContent.contains(resultError)) {
             Driver.getDriver().navigate().refresh();
         }
